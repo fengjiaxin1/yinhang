@@ -36,49 +36,47 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
   {
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
   },
-
   {
     path: '/',
     component: Layout,
-    redirect: '/information',
-    children: [{
-      path: 'information',
-      name: 'information',
-      component: () => import('@/views/information/index'),
-      meta: { title: '信息管理', icon: 'form' }
-    }]
+    children: [
+      {
+        path: 'message',
+        name: 'message',
+        component: () => import('@/views/Message/Message.vue'),
+        meta: { title: '信息管理', icon: 'form' }
+      },
+    ]
   },
-
   {
     path: '/level',
     component: Layout,
-    redirect: '/level',
-    children: [{
-      path: 'level',
-      name: 'level',
-      component: () => import('@/views/level/index'),
-      meta: { title: '等级管理', icon: 'form' }
-    }]
+    children: [
+      {
+        path: 'level',
+        name: 'level',
+        component: () => import('@/views/Level/level.vue'),
+        meta: { title: '等级管理', icon: 'form' }
+      },
+    ]
   },
-
   {
-    path: '/address',
+    path: '/Address',
     component: Layout,
-    redirect: '/address',
-    children: [{
-      path: 'address',
-      name: 'address',
-      component: () => import('@/views/address/index'),
-      meta: { title: '地址管理', icon: 'form' }
-    }]
+    children: [
+      {
+        path: 'address',
+        name: 'address',
+        component: () => import('@/views/Address/Address.vue'),
+        meta: { title: '地址管理', icon: 'form' }
+      },
+    ]
   },
-
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
